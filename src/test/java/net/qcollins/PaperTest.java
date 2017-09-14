@@ -40,4 +40,10 @@ public class PaperTest {
 		pencil.write("abc");
 		Assert.assertEquals(17, pencil.getDurability());
 	}
+	
+	@Test
+	public void writingUpperCaseLettersExpendsPencilDurabilityByTwo() {
+		pencil.write("ABC");
+		Assert.assertEquals(14, pencil.getDurability());
+	}
 }

@@ -18,7 +18,12 @@ public class Pencil {
 	private void reduceDurability(String words) {
 		char[] characters = words.toCharArray();
 		for(char character : characters) {
-			durability--;
+			if(Character.isUpperCase(character)) {
+				durability = durability - 2;
+			}
+			else {
+				durability--;
+			}
 		}
 		
 	}
