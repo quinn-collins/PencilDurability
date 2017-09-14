@@ -3,9 +3,11 @@ package net.qcollins;
 public class Pencil {
 	private Paper paper;
 	private int durability;
+	private int initialDurability;
 
 	public Pencil(int durability, Paper paper) {
 		this.durability = durability;
+		initialDurability = durability;
 		this.paper = paper;
 	}
 
@@ -38,6 +40,10 @@ public class Pencil {
 
 	public int getDurability() {
 		return durability;
+	}
+
+	public void sharpen() {
+		durability = initialDurability;
 	}
 
 }

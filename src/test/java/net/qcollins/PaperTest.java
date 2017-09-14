@@ -77,4 +77,11 @@ public class PaperTest {
 		pencil.write("spaces");
 		Assert.assertEquals("twentycharactersher       ", paper.getWords());
 	}
+	
+	@Test
+	public void pencilCanBeSharpenedToRegainOriginalDurability() {
+		pencil.write("some text");
+		pencil.sharpen();
+		Assert.assertEquals(20, pencil.getDurability());
+	}
 }
