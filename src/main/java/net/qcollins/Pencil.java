@@ -4,11 +4,13 @@ public class Pencil {
 	private Paper paper;
 	private int durability;
 	private int initialDurability;
+	private int length;
 
-	public Pencil(int durability, Paper paper) {
+	public Pencil(int durability, Paper paper, int length) {
 		this.durability = durability;
 		initialDurability = durability;
 		this.paper = paper;
+		this.length = length;
 	}
 
 	public void write(String words) {
@@ -43,7 +45,12 @@ public class Pencil {
 	}
 
 	public void sharpen() {
+		length--;
 		durability = initialDurability;
+	}
+
+	public int getLength() {
+		return length;
 	}
 
 }
