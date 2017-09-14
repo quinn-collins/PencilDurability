@@ -119,4 +119,32 @@ public class PencilTest {
 		pencil.erase("test");
 		Assert.assertEquals("    ", paper.getWords());
 	}
+	
+	@Test
+	public void whenEraseMethodIsUsedItOnlyErasesTheLastOccurenceOfTheWord() {
+		pencil.write("abcabcabc");
+		pencil.erase("abc");
+		Assert.assertEquals("abcabc   ", paper.getWords());
+	}
+	
+	@Test
+	public void whenEraseMethodIsCalledWithAWordThatDoesNotExistNothingIsErased() {
+		pencil.write("test");
+		pencil.erase("abc");
+		Assert.assertEquals("test", paper.getWords());
+	}
+	
+	@Test
+	public void whenEraseMethodIsCalledWithAWordThatIsTheOnlyThingOnThePageItIsErased() {
+		pencil.write("test");
+		pencil.erase("test");
+		Assert.assertEquals("    ", paper.getWords());
+	}
+	
+	@Test
+	public void whenYouCallEraseMethodWithALongerStringThanWhatIsOnThePageNothingIsErased() {
+		pencil.write("test");
+		pencil.erase("testtest");
+		Assert.assertEquals("test", paper.getWords());
+	}
 }

@@ -9,14 +9,16 @@ public class Paper {
 	}
 	
 	public void remove(String stringToRemove) {
-		int startOfWordToRemove = words.lastIndexOf(stringToRemove);
-		StringBuilder builder = new StringBuilder();
-		builder.append(words.substring(0, startOfWordToRemove));
-		for(char character : stringToRemove.toCharArray()) {
-			builder.append(" ");
+		int indexOfWordToRemove = words.lastIndexOf(stringToRemove);
+		if(indexOfWordToRemove > -1) {
+			StringBuilder builder = new StringBuilder();
+			builder.append(words.substring(0, indexOfWordToRemove));
+			for(int i = 0; i < stringToRemove.length(); i++) {
+				builder.append(" ");
+			}
+			builder.append(words.substring(indexOfWordToRemove + stringToRemove.length()));
+			words = builder.toString();
 		}
-		builder.append(words.substring(startOfWordToRemove + stringToRemove.length()));
-		words = builder.toString();
 	}
 
 	public String getWords() {
