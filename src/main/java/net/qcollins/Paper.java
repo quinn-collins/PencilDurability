@@ -4,8 +4,8 @@ public class Paper {
 	
 	private String words = "";
 
-	public void record(String words) {
-		this.words = this.words + words;
+	public void record(char character) {
+		this.words = this.words + character;
 	}
 	
 	public String getWords() {

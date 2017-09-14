@@ -10,26 +10,31 @@ public class Pencil {
 	}
 
 	public void write(String words) {
-		paper.record(words);
-		reduceDurability(words);
-		
-	}
-
-	private void reduceDurability(String words) {
 		char[] characters = words.toCharArray();
 		for(char character : characters) {
-			if(Character.isWhitespace(character)) {
-				
-			}
-			else if(Character.isUpperCase(character)) {
-				durability = durability - 2;
+			reduceDurability(character);
+			if(durability > 0) {
+				paper.record(character);
 			}
 			else {
-				durability--;
+				paper.record(' ');
 			}
 		}
 		
+		
 	}
+
+	private void reduceDurability(char character) {
+		if(Character.isWhitespace(character)) {}
+		else if(Character.isUpperCase(character)) {
+			durability = durability - 2;
+		}
+		else {
+			durability--;
+		}
+	}
+		
+	
 
 	public int getDurability() {
 		return durability;

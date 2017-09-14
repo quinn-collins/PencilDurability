@@ -24,9 +24,9 @@ public class PaperTest {
 	
 	@Test
 	public void whenPencilWritesTwiceTheNewStringIsAppendedToThePaper() {
-		pencil.write("She sells sea shells");
-		pencil.write(" down by the sea shore");
-		Assert.assertEquals("She sells sea shells down by the sea shore", paper.getWords());
+		pencil.write("She sells ");
+		pencil.write("sea shells");
+		Assert.assertEquals("She sells sea shells", paper.getWords());
 	}
 	
 	@Test
@@ -69,5 +69,12 @@ public class PaperTest {
 	public void writingNewLinesWillNotExpendAnyDurability() {
 		pencil.write("\n");
 		Assert.assertEquals(20, pencil.getDurability());
+	}
+	
+	@Test
+	public void pencilWillWriteOnlySpacesWhenOutOfDurability() {
+		pencil.write("twentycharactershere");
+		pencil.write("spaces");
+		Assert.assertEquals("twentycharactersher       ", paper.getWords());
 	}
 }
