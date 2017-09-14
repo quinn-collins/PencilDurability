@@ -98,4 +98,13 @@ public class PaperTest {
 		pencil.sharpen();
 		Assert.assertEquals(2, pencil.getLength());
 	}
+	
+	@Test
+	public void pencilCanNotBeANegativeLength() {
+		pencil.sharpen();
+		pencil.sharpen();
+		pencil.sharpen();
+		pencil.sharpen();
+		Assert.assertEquals(0, pencil.getLength());
+	}
 }
