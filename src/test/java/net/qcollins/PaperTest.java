@@ -13,7 +13,7 @@ public class PaperTest {
 	@Before
 	public void setup() {
 		paper = new Paper();
-		pencil = new Pencil(20, paper, 3);
+		pencil = new Pencil(20, paper, 1);
 	}
 	
 	@Test
@@ -96,15 +96,21 @@ public class PaperTest {
 	@Test
 	public void whenYouSharpenAPencilItsLengthIsReducedByOne() {
 		pencil.sharpen();
-		Assert.assertEquals(2, pencil.getLength());
+		Assert.assertEquals(0, pencil.getLength());
 	}
 	
 	@Test
 	public void pencilCanNotBeANegativeLength() {
 		pencil.sharpen();
 		pencil.sharpen();
-		pencil.sharpen();
-		pencil.sharpen();
 		Assert.assertEquals(0, pencil.getLength());
+	}
+	
+	@Test
+	public void whenPencilHasZeroLengthSharpeningItWillNoLongerRestoreDurability() {
+		pencil.sharpen();
+		pencil.write("text");
+		pencil.sharpen();
+		Assert.assertEquals(16, pencil.getDurability());
 	}
 }
