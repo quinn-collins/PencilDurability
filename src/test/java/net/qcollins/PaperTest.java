@@ -46,4 +46,16 @@ public class PaperTest {
 		pencil.write("ABC");
 		Assert.assertEquals(14, pencil.getDurability());
 	}
+	
+	@Test
+	public void writingOneUpperCaseLetterAndTwoLowerCaseLettersWillReduceDurabilityByFour() {
+		pencil.write("Abc");
+		Assert.assertEquals(16, pencil.getDurability());
+	}
+	
+	@Test
+	public void writingSpacesWillNotExpendAnyDurability() {
+		pencil.write("   ");
+		Assert.assertEquals(20, pencil.getDurability());
+	}
 }
