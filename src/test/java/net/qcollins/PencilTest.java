@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class PaperTest {
+public class PencilTest {
 	
 	Pencil pencil;
 	Paper paper;
