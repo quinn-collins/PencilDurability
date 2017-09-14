@@ -58,4 +58,16 @@ public class PaperTest {
 		pencil.write("   ");
 		Assert.assertEquals(20, pencil.getDurability());
 	}
+	
+	@Test
+	public void writingALowerCaseCharacterThenASpaceThenALowerCaseLetterWillReduceDurabilityByTwo() {
+		pencil.write("a c");
+		Assert.assertEquals(18, pencil.getDurability());
+	}
+	
+	@Test
+	public void writingNewLinesWillNotExpendAnyDurability() {
+		pencil.write("\n");
+		Assert.assertEquals(20, pencil.getDurability());
+	}
 }
