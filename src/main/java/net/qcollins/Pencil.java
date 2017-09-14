@@ -15,37 +15,32 @@ public class Pencil {
 
 	public void write(String words) {
 		char[] characters = words.toCharArray();
-		for(char character : characters) {
+		for (char character : characters) {
 			reduceDurability(character);
-			if(durability > 0) {
+			if (durability > 0) {
 				paper.record(character);
-			}
-			else {
+			} else {
 				paper.record(' ');
 			}
 		}
-		
-		
+
 	}
 
 	private void reduceDurability(char character) {
-		if(Character.isWhitespace(character)) {}
-		else if(Character.isUpperCase(character)) {
+		if (Character.isWhitespace(character)) {
+		} else if (Character.isUpperCase(character)) {
 			durability = durability - 2;
-		}
-		else {
+		} else {
 			durability--;
 		}
 	}
-		
-	
 
 	public int getDurability() {
 		return durability;
 	}
 
 	public void sharpen() {
-		if(length > 0) {
+		if (length > 0) {
 			length--;
 			durability = initialDurability;
 		}
@@ -53,6 +48,11 @@ public class Pencil {
 
 	public int getLength() {
 		return length;
+	}
+
+	public void erase(String stringToRemove) {
+		paper.remove(stringToRemove);
+		
 	}
 
 }
