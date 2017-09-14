@@ -15,6 +15,7 @@ public class Paper {
 			builder.append(words.substring(0, indexOfWordToRemove));
 			for(int i = 0; i < stringToRemove.length(); i++) {
 				builder.append(" ");
+				Pencil.reduceEraserDurability();
 			}
 			builder.append(words.substring(indexOfWordToRemove + stringToRemove.length()));
 			words = builder.toString();

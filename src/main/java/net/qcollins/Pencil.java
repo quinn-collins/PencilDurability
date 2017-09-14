@@ -5,12 +5,14 @@ public class Pencil {
 	private int durability;
 	private int initialDurability;
 	private int length;
+	private static int eraserDurability;
 
-	public Pencil(int durability, Paper paper, int length) {
+	public Pencil(int durability, Paper paper, int length, int eraserDurability) {
 		this.durability = durability;
 		initialDurability = durability;
 		this.paper = paper;
 		this.length = length;
+		Pencil.eraserDurability = eraserDurability;
 	}
 
 	public void write(String words) {
@@ -38,6 +40,10 @@ public class Pencil {
 	public int getDurability() {
 		return durability;
 	}
+	
+	public static int getEraserDurability() {
+		return eraserDurability;
+	}
 
 	public void sharpen() {
 		if (length > 0) {
@@ -53,6 +59,10 @@ public class Pencil {
 	public void erase(String stringToRemove) {
 		paper.remove(stringToRemove);
 		
+	}
+
+	public static void reduceEraserDurability() {
+		eraserDurability--;
 	}
 
 }

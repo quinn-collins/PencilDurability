@@ -12,7 +12,7 @@ public class PencilTest {
 	@Before
 	public void setup() {
 		paper = new Paper();
-		pencil = new Pencil(20, paper, 1);
+		pencil = new Pencil(20, paper, 1, 4);
 	}
 
 	@Test
@@ -146,5 +146,12 @@ public class PencilTest {
 		pencil.write("test");
 		pencil.erase("testtest");
 		Assert.assertEquals("test", paper.getWords());
+	}
+	
+	@Test
+	public void eraserDurabilityIsReducedByOneForEachCharacterErased() {
+		pencil.write("abc");
+		pencil.erase("abc");
+		Assert.assertEquals(1, Pencil.getEraserDurability());
 	}
 }
