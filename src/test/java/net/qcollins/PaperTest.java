@@ -30,8 +30,14 @@ public class PaperTest {
 	}
 	
 	@Test
-	public void writingTextExpendsDurability() {
+	public void writingTextExpendsPencilDurability() {
 		pencil.write("this is a test");
 		Assert.assertTrue(pencil.getDurability() < 20);
+	}
+	
+	@Test
+	public void writingLowerCaseLettersExpendsPencilDurabilityByOne() {
+		pencil.write("abc");
+		Assert.assertEquals(17, pencil.getDurability());
 	}
 }
